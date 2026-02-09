@@ -15,7 +15,6 @@ jobs:
           sudo apt update
           # Manually download the missing libtinfo5 for Ubuntu 24.04
           wget http://archive.ubuntu.com
-          # THE FIX: Added ./ before the filename
           sudo apt install -y ./libtinfo5_6.4-2_amd64.deb
           # Install the rest of the tools
           sudo apt install -y git zip unzip autoconf libtool pkg-config libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
