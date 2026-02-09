@@ -13,7 +13,11 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt install -y git zip unzip autoconf libtool pkg-config libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+          # Manually download the missing libtinfo5 for Ubuntu 24.04
+          wget http://archive.ubuntu.com
+          sudo apt install ./libtinfo5_6.4-2_amd64.deb
+          # Install the rest of the tools
+          sudo apt install -y git zip unzip autoconf libtool pkg-config libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip install --upgrade buildozer Cython==0.29.33 virtualenv
       - name: Build with Buildozer
         run: buildozer -v android debug
